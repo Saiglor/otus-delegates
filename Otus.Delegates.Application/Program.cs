@@ -10,8 +10,21 @@ namespace Otus.Delegates.Application
         static void Main()
         {
             IEnumerable items = new List<string> { "52", "448", "12" };
-            var res = items.GetMax<string>(float.Parse);
-            Console.WriteLine(res);
+
+            try
+            {
+                var res = items.GetMax<string>(float.Parse);
+
+                Console.WriteLine(res);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Неверный формат входных данных");
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }
