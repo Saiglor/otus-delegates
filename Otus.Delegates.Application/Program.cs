@@ -1,13 +1,17 @@
 ﻿using System;
-using System;
+using System.Collections;
+using System.Collections.Generic;
+using Otus.Delegates.Application.Extensions;
 
 namespace Otus.Delegates.Application
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Console.WriteLine("Hello World!");
+            IEnumerable items = new List<string> { "52", "448", "12" };
+            var res = items.GetMax<string>(float.Parse);
+            Console.WriteLine(res);
         }
     }
 }
